@@ -43,6 +43,13 @@
     <link rel="stylesheet" href="{{ asset('css/plugins/forms/form-validation.css')}}">
     <link rel="stylesheet" href="{{ asset('css/plugins/forms/pickers/form-flat-pickr.css')}}">
 
+
+    <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/tables/datatable/responsive.bootstrap5.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
+
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
     <!-- END: Custom CSS-->
