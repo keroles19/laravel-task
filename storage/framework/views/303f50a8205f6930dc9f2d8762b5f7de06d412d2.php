@@ -1,6 +1,4 @@
-@extends('layouts.layouts')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="content-header row">
         <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
@@ -23,6 +21,9 @@
                         x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>Add New Company</span>
         </a>
-    {{$dataTable->table()}}
-@endsection
+    <?php echo e($dataTable->table()); ?>
 
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.layouts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Digital Experts\postman\ASk\resources\views/companies/index.blade.php ENDPATH**/ ?>

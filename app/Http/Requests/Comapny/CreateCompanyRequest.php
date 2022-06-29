@@ -13,7 +13,7 @@ class CreateCompanyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class CreateCompanyRequest extends FormRequest
         return [
            'name'=>'required|max:255',
             'address'=>'required|max:255',
-            'logo'=>'mimes:png,jpg,giv|max:1024',
+            'file_upload'=>'required|image|mimes:png,jpg,jpeg|max:1024',
         ];
     }
 }
