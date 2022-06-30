@@ -13,7 +13,7 @@ class CreateEmployeeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,7 @@ class CreateEmployeeRequest extends FormRequest
             'name'=>'required|max:255',
             'email'=>'required|email|unique:employees,email',
             'password'=>'required|confirmed',
-            'logo'=>'mimes:png,jpg,giv|max:1024',
+            'file_upload'=>'required|image|mimes:png,jpg,jpeg|max:1024',
             'company_id'=>'required|exists:companies,id'
         ];
     }

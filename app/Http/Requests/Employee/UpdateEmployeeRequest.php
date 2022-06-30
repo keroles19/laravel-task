@@ -13,22 +13,17 @@ class UpdateEmployeeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
+
     public function rules()
     {
         return [
             'name'=>'sometimes|required|max:255',
-            'email'=>'sometimes|email|unique:employees,email,'.$this->email,
-            'password'=>'sometimes|required|confirmed',
-            'logo'=>'sometimes:mimes:png,jpg,giv|max:1024',
-            'company_id'=>'sometimes|exists:companies,id'
+            'email'=>'sometimes|required|email|unique:employees,email,'.$this->employee,
+            'file_upload'=>'sometimes|required|image|mimes:png,jpg,jpeg|max:1024',
+            'company_id'=>'sometimes|required|exists:companies,id'
         ];
     }
 }

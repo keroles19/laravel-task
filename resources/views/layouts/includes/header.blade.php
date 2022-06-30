@@ -39,9 +39,11 @@
 
 
     <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/forms/select/select2.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/plugins/forms/form-validation.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/plugins/forms/pickers/form-flat-pickr.css')}}">
+
+
+    <!-- BEGIN: Vendor CSS-->
+
+    <!-- END: Vendor CSS-->
 
 
     <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/tables/datatable/dataTables.bootstrap5.min.css')}}">
@@ -49,6 +51,11 @@
     <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/tables/datatable/buttons.bootstrap5.min.css')}}">
     <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css')}}">
     <link rel="stylesheet" href="{{ asset('app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
+
+
+
+
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">

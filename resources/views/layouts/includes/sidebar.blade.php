@@ -15,12 +15,18 @@
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <!--  Start SideBar     -->
-{{--            <li class=" nav-item {{ Route::is('hospital.dashboard') ? 'active' : ''  }} ">--}}
-{{--                <a class="d-flex align-items-center "--}}
-{{--                   href="{{route('hospital.dashboard')}}">--}}
-{{--                    <i data-feather="box"></i><span class="menu-title text-truncate"--}}
-{{--                    data-i18n="Form Layout">Dashboard</span></a>--}}
-{{--            </li>--}}
+            <li class=" nav-item {{ Route::is('company.*') ? 'active' : ''  }} ">
+                <a class="d-flex align-items-center "
+                   href="{{route('company.index')}}">
+                    <i data-feather="box"></i><span class="menu-title text-truncate"
+                    data-i18n="Form Layout">Company</span></a>
+            </li>
+              <li class=" nav-item {{ Route::is('employee.*') ? 'active' : ''  }} ">
+                            <a class="d-flex align-items-center "
+                               href="{{route('employee.index')}}">
+                                <i data-feather="box"></i><span class="menu-title text-truncate"
+                                data-i18n="Form Layout">Empolyee</span></a>
+                        </li>
 
         </ul>
     </div>

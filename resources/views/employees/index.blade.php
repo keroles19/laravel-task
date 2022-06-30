@@ -1,10 +1,26 @@
 @extends('layouts.layouts')
 
 @section('content')
-    <section id="dashboard-ecommerce">
-        <div class="row match-height">
-            create page
+    <!-- Basic table -->
+    <section id="basic-datatable">
+        <div class="row">
+            <div class="col-12">
+                <div class="card p-1">
+                    <div class="card-header">
+                        <a class="dt-button d-flex justify-content-center btn btn-primary"
+                           href="{{route('employee.create')}}"> Create Employee
+                        </a>
+                    </div>
+                    {{$dataTable->table()}}
+                </div>
+            </div>
         </div>
     </section>
+    <!--/ Basic table -->
+
 @endsection
 
+@push('scripts')
+    {{$dataTable->scripts()}}
+
+@endpush

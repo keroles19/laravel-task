@@ -38,18 +38,31 @@
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js')}}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/responsive.bootstrap5.min.js')}}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.buttons.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/jszip.min.js')}}"></script>
+{{--<script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.buttons.min.js')}}"></script>--}}
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/pdfmake.min.js')}}"></script>
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/vfs_fonts.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.html5.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.print.min.js')}}"></script>
+{{--<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.html5.min.js')}}"></script>--}}
 <script src="{{ asset('app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js')}}"></script>
-<script src="{{ asset('app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
-
+{{--<script src="{{ asset('app-assets/vendors/js/tables/datatable/buttons.print.min.js')}}"></script>--}}
 <script src="{{ asset('app-assets/js/scripts/tables/table-datatables-basic.js')}}"></script>
+<script src="{{ asset('app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js')}}"></script>
+<script src="{{ asset('assets/js/filter.dropdown.min.js')}}"></script>
 
 
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            filterDropDown: {
+                columns: [
+                    idx: 3
+    ]
+    }
+    } );
+    } );
+</script>
+
+@stack('scripts')
 
 @include('partials.swal')
 

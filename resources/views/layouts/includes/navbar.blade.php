@@ -11,7 +11,7 @@
                           Keroles
                         </span>
                         <span class="user-status">Admin</span></div><span class="avatar">
-                        <img class="round" src="{{asset('storage/')}}"
+                        <img class="round" src="{{asset('assets/img/person/person_1.jpg')}}"
                              alt="avatar" height="40" width="40"><span class="avatar-status-online"></span>
                     </span>
                 </a>

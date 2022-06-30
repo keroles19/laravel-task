@@ -8,7 +8,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">@lang('Create Company')</h4>
+                            <h4 class="card-title">@lang('Edit Company')</h4>
                         </div>
                         <div class="card-body">
                             @include('partials.errors')

@@ -23,9 +23,12 @@ trait ImageProcess
 
     protected function getName(mixed $path, mixed $old, mixed $image): string
     {
+        if(!File::exists(storage_path('app/public/'.$path))){
+            mkdir(storage_path('app/public/'.$path));
+        }
 
-        if ($old != null && File::exists(public_path('storage/' . $path .'/'. $old))) {
-            File::delete(public_path('storage/' . $path .'/'. $old));
+        if ($old != null && File::exists(storage_path('app/public/' . $path .'/'. $old))) {
+            File::delete(storage_path('app/public/' . $path .'/'. $old));
         }
         $name = time().'.'.$image->getClientOriginalExtension();
         return $name;

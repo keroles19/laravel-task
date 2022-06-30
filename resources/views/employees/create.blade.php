@@ -1,10 +1,77 @@
 @extends('layouts.layouts')
-
 @section('content')
-    <section id="dashboard-ecommerce">
-        <div class="row match-height">
-            create page
-        </div>
-    </section>
+
+    <div class="content-body">
+        <!-- Input Mask start -->
+        <section id="input-mask-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">@lang('Create Employee')</h4>
+                        </div>
+                        <div class="card-body">
+                            @include('partials.errors')
+                            <form action="{{route('employee.store')}}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-xl-6 col-md-6 col-sm-12 mb-2">
+                                        <label class="form-label" >@lang('name')</label>
+                                        <input type="text" name="name" class="form-control"
+                                               placeholder="Enter Name"/>
+                                    </div>
+
+                                    <div class="col-xl-6 col-md-6 col-sm-12 mb-2">
+                                        <label class="form-label" >@lang('email')</label>
+                                        <input type="email" name="email" class="form-control"
+                                               placeholder="Enter email"/>
+                                    </div>
+
+
+                                    <div class="col-xl-6 col-md-6 col-sm-12 mb-2">
+                                        <label class="form-label" >@lang('password')</label>
+                                        <input type="password" name="password" class="form-control"
+                                               placeholder="Enter password"/>
+                                    </div>
+
+                                    <div class="col-xl-6 col-md-6 col-sm-12 mb-2">
+                                        <label class="form-label" >@lang('password confirmation')</label>
+                                        <input type="password" name="password_confirmation" class="form-control"
+                                               placeholder="Confirm password"/>
+                                    </div>
+
+                                    <div class="col-xl-6 col-md-6 col-sm-12 mb-2">
+                                        <label class="form-label" >@lang('Logo')</label>
+                                        <img id="blah" alt="your image" width="100" height="100" />
+                                        <input type="file" class="form-control" name="file_upload" type="file" id="customFile1"
+                                    onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                    </div>
+
+
+                                    <div class="col-xl-6 col-md-6 col-sm-12 mb-2">
+                                    <label class="form-label" for="select-country1">Country</label>
+                                        <select name="company_id" class="form-select" id="select-country1" required>
+                                            <option value="">Select Country</option>
+                                           @forelse($company as $item)
+                                               <option value="{{$item->id}}">{{$item->name}}</option>
+                                               @empty
+                                            @endforelse
+                                        </select>
+                                    </div>
+                                    <div class="col-12 d-grid gap-6" style="margin-top: 10px;">
+                                        <button class="btn btn-icon btn-primary btn-block" type="submit">
+                                            @lang('Submit')
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Input Mask End -->
+
+    </div>
 @endsection
 

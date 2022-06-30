@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\CompanyDataTable;
 use App\Http\Requests\Comapny\CreateCompanyRequest;
 use App\Http\Requests\Comapny\UpdateCompanyRequest;
 use App\Models\Company;
@@ -12,9 +13,9 @@ class CompanyController extends Controller
 {
     use ImageProcess;
 
-    public function index()
+    public function index(CompanyDataTable $dataTable)
     {
-        return view('companies.index');
+        return $dataTable->render('companies.index');
     }
 
 
@@ -41,7 +42,7 @@ class CompanyController extends Controller
     public function edit($id)
     {
 
-       $model = Company::findOrFail($id);
+       $model = $this->getCompany($id);
         return view('companies.edit')->with([
             'model'=>$model
         ]);
@@ -51,7 +52,7 @@ class CompanyController extends Controller
     public function update(UpdateCompanyRequest $request, $id)
     {
 
-        $model = Company::findORFail($id);
+        $model = $this->getCompany($id);
         // upload image and get name it
         if($request->has('file_upload')){
             $logo = $this->saveImage($request->file_upload,'company',$model->logo);
@@ -59,7 +60,7 @@ class CompanyController extends Controller
             $request->merge(['logo'=>$logo]);
         }
         // create new record
-        $model::query()->update([$request->only(['name','address','logo'])]);
+        $model->update($request->all());
 
         return back()->with('success','Done :) updated successful');
     }
@@ -67,8 +68,13 @@ class CompanyController extends Controller
 
     public function destroy($id)
     {
-        //
+        $model = $this->getCompany($id);
+        $model->delete();
+        return back()->with('success','Done :) deletes successful');
     }
 
+    private function getCompany($id){
+        return Company::findOrFail($id);
+    }
 
 }
