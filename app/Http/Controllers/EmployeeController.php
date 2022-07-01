@@ -13,14 +13,43 @@ use App\Models\Company;
 use App\Models\Employee;
 use App\Traits\ImageProcess;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class EmployeeController extends Controller
 {
     use ImageProcess;
 
-    public function index(EmployeeDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('employees.index');
+        return view ('employees.index')->with([
+            'model'=>$this->getCompany()
+        ]);
+    }
+
+
+    public function employees(Request $request){
+
+        if ($request->ajax()) {
+            return DataTables::of(Employee::with('company'))
+                ->addColumn('action', 'employees.action')
+                ->filter(function ($instance) use ($request) {
+                    if (isset($request->user)) {
+                        $instance->where('company_id',$request->user);
+                    }
+                    if (!empty($request->search)) {
+                        $instance->where(function($w) use($request){
+                            $w->orWhere('name', 'LIKE', "%$request->search%")
+                                ->orWhere('email', 'LIKE', "%$request->search%")
+                            ->orWhereHas('company',function($query) use($request){
+                                $query->where('name','LIKE',"%$request->search%");
+                            })
+                            ;
+                        });
+                    }
+                })->rawColumns(['action'])
+                ->make(true);
+        }
+
     }
 
 

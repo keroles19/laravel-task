@@ -21,5 +21,5 @@ Route::redirect('/','company');
 Route::resource('company',CompanyController::class)->except('show');
 Route::resource('employee',EmployeeController::class)->except('show');
 
-Route::get('custom-filter-data',[EmployeeController::class,'getCustomFilterData']);
+Route::get('get-employees',[EmployeeController::class,'employees'])->name('employees');
 
