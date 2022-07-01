@@ -11,9 +11,9 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label><strong>User :</strong></label>
+                            <label><strong>Company :</strong></label>
                             <select id='user' class="form-control" style="width: 200px">
-                                <option value="">--Select User--</option>
+                                <option value="">--Select Company--</option>
                                 <?php $__empty_1 = true; $__currentLoopData = $model; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                     <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>

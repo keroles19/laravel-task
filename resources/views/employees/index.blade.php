@@ -13,9 +13,9 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label><strong>User :</strong></label>
+                            <label><strong>Company :</strong></label>
                             <select id='user' class="form-control" style="width: 200px">
-                                <option value="">--Select User--</option>
+                                <option value="">--Select Company--</option>
                                 @forelse($model as $item)
                                     <option value="{{$item->id}}">{{$item->name}}</option>
                                 @empty
